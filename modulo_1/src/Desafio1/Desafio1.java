@@ -1,3 +1,4 @@
+package Desafio1;
 
 public class Desafio1 {
 
@@ -6,7 +7,7 @@ public class Desafio1 {
             Integer tamanhoTurma
     ) {
         if (capacidadeCabine <= 0) {
-            throw new IllegalArgumentException("Capacidade da cabine não pode deve ser menor ou igual a zero !");
+            throw new IllegalArgumentException("Capacidade da cabine não deve ser menor ou igual a zero !");
         }
 
         this.tamanhoTurma = tamanhoTurma;
@@ -17,17 +18,10 @@ public class Desafio1 {
 
     private final Integer tamanhoTurma;
 
-    private String calcularViagens() {
+    protected String calcularViagens() {
         int numeroMinimo = tamanhoTurma / capacidadeCabine + 1;
-        return "Numero minimo de viagens: " + numeroMinimo;
+        return "Número mínimo de viagens: " + numeroMinimo;
     }
 
-    public static void main(String[] args) {
-
-        Desafio1 desafio = new Desafio1(10, 20);
-
-        System.out.println(desafio.calcularViagens());
-
-    }
 }
 
