@@ -1,15 +1,16 @@
 package Desafio2;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
 
-    private static int factorial(Integer number, Integer maxValue) {
+    private static int factorial(Integer number, Integer maxNumber) {
         int factorial = 1;
 
         for (int i = 1; i <= number; i++) {
 
-            if(factorial > maxValue){
+            if(factorial > maxNumber){
                 break;
             }
 
@@ -22,48 +23,54 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int number = 15;
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Digite um numero:");
+
+        int numero = scanner.nextInt();
 
         int resposta = 0;
 
         ArrayList<Integer> lista = new ArrayList();
 
-        for (int i = number; i >= 1; i--) {
+        for (int i = numero; i >= 1; i--) {
 
-            int factorial = factorial(i, number);
+            int factorial = factorial(i, numero);
 
-            System.out.println(factorial);
+//            System.out.println(factorial);
 
-            if (factorial == number) {
+            if (factorial == numero) {
                 resposta++;
-                System.out.println(resposta);
+//                System.out.println(resposta);
                 break;
             }
 
-            if (factorial < number) {
-                lista.add(factorial);
+            if (factorial < numero) {
+                if(!lista.contains(factorial)){
+                    lista.add(factorial);
+                }
             }
 
         }
 
-        System.out.println();
-        lista.forEach(System.out::println);
-        System.out.println();
+//        System.out.println();
+//        lista.forEach(System.out::println);
+//        System.out.println();
 
         Integer conta = 0;
         for (int i = 0; i < lista.size(); i++) {
-            conta = conta + lista.get(i);
-            if (conta <= number) {
+            conta += lista.get(i);
+            if (conta <= numero) {
                 resposta++;
             }
-            while (conta < number) {
+            while (conta < numero) {
                 conta += lista.get(i);
-                if (conta <= number) {
+                if (conta <= numero) {
                     resposta++;
                     break;
                 }
             }
-            if (conta > number) {
+            if (conta > numero) {
                 conta -= lista.get(i);
             }
         }
@@ -71,7 +78,6 @@ public class Main {
         System.out.println("A resposta é: " + resposta);
 
     }
-
 
 }
 
