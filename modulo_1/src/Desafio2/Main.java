@@ -6,11 +6,19 @@ import java.util.Scanner;
 public class Main {
 
     private static int factorial(Integer number, Integer maxNumber) {
+
+//        if(number == 1){
+//            return 1;
+//        }else{
+//            int aux = number * factorial(number - 1, number);
+//            return aux;
+//        }
+
         int factorial = 1;
 
         for (int i = 1; i <= number; i++) {
 
-            if(factorial > maxNumber){
+            if (factorial > maxNumber) {
                 break;
             }
 
@@ -46,7 +54,7 @@ public class Main {
             }
 
             if (factorial < numero) {
-                if(!lista.contains(factorial)){
+                if (!lista.contains(factorial)) {
                     lista.add(factorial);
                 }
             }
